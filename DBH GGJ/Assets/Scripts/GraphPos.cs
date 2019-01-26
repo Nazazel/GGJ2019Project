@@ -13,7 +13,7 @@ public class GraphPos : MonoBehaviour
     {
         cursor = spawnDialogue;
         graph = new Dictionary<int, Dialogue>();
-        List<Dictionary<string, object>> data = CSVReader.Read("small");
+        List<Dictionary<string, object>> data = CSVReader.Read("test");
         for(int i = 0; i < data.Count; ++i)
             graph[i + 2] = new Dialogue(i, data[i]);
     }

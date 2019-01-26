@@ -184,12 +184,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GavinStress: 0
   PerpStress: 0
-  MaxTimer: 0
+  timerTickRate: 0.25
+  MaxTimer: 10
   CurrentTimer: 0
   GavinPortrait: 
   PerpPortrait: 
   GavinMeter: {fileID: 0}
   PerpMeter: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
