@@ -14,6 +14,7 @@ public class GameState : MonoBehaviour
     public string PerpPortrait; //current portrait for perp
     public Image GavinMeter;
     public Image PerpMeter;
+    public textBoxTransition box;
 
 
     // Start is called before the first frame update
@@ -67,7 +68,7 @@ public class GameState : MonoBehaviour
     /// </summary>
     // <param name="time"></param>
     public void SetMaxTimer(float max, float PotentialPenalty) {
-        MaxTimer = (float)Math.Round((max - ((PerpStress / 100) * PotentialPenalty)) * 2) / 2;
+        MaxTimer = (float)Math.Round( (max - ( (PerpStress/100)*PotentialPenalty)) *2 )/2;
         CurrentTimer = 0;
     }
     /// <summary>
@@ -91,7 +92,7 @@ public class GameState : MonoBehaviour
     // <param name="newPortrait"></param>
     public void SetPerpPortrait(Portrait newPortrait)
     {
-        PerpPortrait = newPortrait.type;
+        PerpPortrait= newPortrait.type;
     }
 
     /// <summary>
@@ -120,10 +121,17 @@ public class GameState : MonoBehaviour
         TimerEnd();
     }
 
+    public void TextSwitch(string name) {
+
+        if (name == "Gavin"){ box.rightBox(); }
+        else { box.leftBox(); }
+
+
+    }
 
     public void UpdateMeter() {
-        PerpMeter.fillAmount = Math.Min(100, PerpStress);
-        GavinMeter.fillAmount = Math.Min(100, GavinStress);
+        PerpMeter.fillAmount = (float)Math.Min(100,PerpStress);
+        GavinMeter.fillAmount = (float)Math.Min(100, GavinStress);
     }
 
     /// <summary>

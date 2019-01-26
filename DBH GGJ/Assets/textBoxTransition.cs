@@ -55,7 +55,7 @@ public class textBoxTransition : MonoBehaviour
 
     //call this method to begin moving text box left
     //this sets up the text box so that rA9 is speaking
-    void leftBox()
+    public void leftBox()
     {
         shiftDir = -1;
         StartCoroutine("shiftLeft");
@@ -63,7 +63,7 @@ public class textBoxTransition : MonoBehaviour
 
     //call this method to begin moving text box right
     //this sets up the text box so that Gavin is speaking
-    void rightBox()
+    public void rightBox()
     {
         shiftDir = 1;
         StartCoroutine("shiftRight");
