@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 public class GameState : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameState : MonoBehaviour
     public float CurrentTimer; // current time 
     public string GavinPortrait; //current portrait for gavin
     public string PerpPortrait; //current portrait for perp
+    public Image GavinMeter;
+    public Image PerpMeter;
 
 
 
@@ -22,7 +25,8 @@ public class GameState : MonoBehaviour
         CurrentTimer = 0;
         GavinPortrait = "Default";
         PerpPortrait = "Default";
-        
+        PerpMeter.fillAmount = 0;
+        GavinMeter.fillAmount = 0;
         
     }
 
@@ -99,11 +103,20 @@ public class GameState : MonoBehaviour
     /// <summary>
     /// timer, increments CurrentTimer till reaches MaxTimer Value
     /// </summary>
-    public void StartTimer() {
+    public void StartTimer(float period) {
+        float PostTime = Time.time + period;
         while (CurrentTimer != MaxTimer) {
-            CurrentTimer += Time.deltaTime;
+            if (Time.time > PostTime) {
+                CurrentTimer += period;
+                PostTime += period;
+            }
         }
         TimerEnd();
+    }
+
+    public void UpdateMeter() {
+        PerpMeter.fillAmount = (float)Math.Min(100,PerpStress);
+        GavinMeter.fillAmount = (float)Math.Min(100, GavinStress);
     }
 
     /// <summary>
