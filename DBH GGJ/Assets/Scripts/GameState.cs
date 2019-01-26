@@ -52,7 +52,6 @@ public class GameState : MonoBehaviour
 
 
 
-
     /// <summary>
     /// updates the perp's portrait state with the new passed struct 
     /// </summary>
@@ -61,6 +60,24 @@ public class GameState : MonoBehaviour
     {
         PerpPortrait= newPortrait.type;
     }
+
+    /// <summary>
+    /// stuff to do when timer ends
+    /// </summary>
+    void TimerEnd() {
+        // fill stuff to do when timer ends
+    }
+
+    /// <summary>
+    /// timer, increments CurrentTimer till reaches MaxTimer Value
+    /// </summary>
+    void StartTimer() {
+        while (CurrentTimer != MaxTimer) {
+            CurrentTimer += Time.deltaTime;
+        }
+        TimerEnd();
+    }
+
 
     // Update is called once per frame
     void Update()
