@@ -62,6 +62,9 @@ public class GameState : MonoBehaviour
         GavinPortrait = newPortrait.type;
     }
 
+    /// <summary>
+    /// returns gavins portrait string 
+    /// </summary>
     public string GetGavPort() {
         return GavinPortrait;
     }   
@@ -75,6 +78,9 @@ public class GameState : MonoBehaviour
         PerpPortrait= newPortrait.type;
     }
 
+    /// <summary>
+    /// returns Perp portrait string 
+    /// </summary>
     public string GetPerpPort()
     {
         return PerpPortrait;
@@ -97,7 +103,17 @@ public class GameState : MonoBehaviour
         TimerEnd();
     }
 
-    
+    /// <summary>
+    /// handling of of the stress meters as a lose state
+    /// Todo: fill in what happens if either stress gets to 100
+    /// </summary>
+    public void StressHandle() {
+        if (GavinStress == 100 || PerpStress == 100) {
+            //fill in
+        }
+
+    }
+
 
     // Update is called once per frame
     void Update()
