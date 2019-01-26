@@ -122,6 +122,8 @@ GameObject:
   m_Component:
   - component: {fileID: 89067781}
   - component: {fileID: 89067780}
+  - component: {fileID: 89067783}
+  - component: {fileID: 89067782}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -156,6 +158,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &89067782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89067779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54773c75425de2148ab4e4877b6a7c4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &89067783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89067779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c9c2b8f9d847943b2124dd6fa342ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GavinStress: 0
+  PerpStress: 0
+  MaxTimer: 0
+  CurrentTimer: 0
+  GavinPortrait: 
+  PerpPortrait: 
+  GavinMeter: {fileID: 0}
+  PerpMeter: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

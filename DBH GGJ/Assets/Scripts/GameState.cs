@@ -7,6 +7,7 @@ public class GameState : MonoBehaviour
 {
     public float GavinStress;// stress value of gavin
     public float PerpStress;// stress value of perp
+    public float timerTickRate;//the amount of time, in seconds that the timer increments at
     public float MaxTimer;     // dailouge choice timer
     public float CurrentTimer; // current time 
     public string GavinPortrait; //current portrait for gavin
@@ -15,22 +16,30 @@ public class GameState : MonoBehaviour
     public Image PerpMeter;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
         GavinStress = 0;
         PerpStress = 0;
-        MaxTimer = 0;
+        //MaxTimer = 0;
         CurrentTimer = 0;
         GavinPortrait = "Default";
         PerpPortrait = "Default";
-        PerpMeter.fillAmount = 0;
-        GavinMeter.fillAmount = 0;
-        
+        //PerpMeter.fillAmount = 0;
+        //GavinMeter.fillAmount = 0;
+        StartCoroutine(AdvanceTimer(timerTickRate));
     }
 
-    
+    private IEnumerator AdvanceTimer(float tickRate)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(tickRate);
+            TickTimer(tickRate);
+        }
+    }
+
+
     /// <summary>
     ///   add the associated stress values to each character from the passed stress struct 
     /// </summary>
@@ -96,28 +105,21 @@ public class GameState : MonoBehaviour
     /// <summary>
     /// stuff to do when timer ends
     /// </summary>
-    public void TimerEnd() {
-        // fill stuff to do when timer ends
-        Debug.Log("tick");
+    private void TimerEnd() {
+        Debug.Log(CurrentTimer);
     }
 
     /// <summary>
-    /// timer, increments CurrentTimer till reaches MaxTimer Value
-    /// Increment the currentTimer 
     /// </summary>
-    public void TickTimer(float period) {
-        float PostTime = Time.time + period;
-        //while there is still time in the main timer
-        while (CurrentTimer <= MaxTimer) {
-            //check if its been period length of time since called this fxn
-            if (Time.time > PostTime) {
-                //add that time period to the current timer nad postTimer, to setup for next tick
-                CurrentTimer += period;
-                PostTime += period;
-            }
-        }
+    private void TickTimer(float seconds)
+    {
+        //increment currentTimer if wouldnt put past max time, else set to max time
+        CurrentTimer = ((CurrentTimer + seconds) >= MaxTimer) ? MaxTimer : (CurrentTimer + seconds);
+        //to make sure rounding errors dont compound and run away, round to nearest valid timeTickRate interval
+        CurrentTimer = Mathf.Round(CurrentTimer * 1 / timerTickRate) * timerTickRate;
         TimerEnd();
     }
+
 
     public void UpdateMeter() {
         PerpMeter.fillAmount = Math.Min(100, PerpStress);
@@ -139,6 +141,6 @@ public class GameState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

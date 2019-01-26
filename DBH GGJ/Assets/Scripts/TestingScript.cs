@@ -10,11 +10,12 @@ public class TestingScript : MonoBehaviour
     {
         //List<Dictionary<string, object>> data = CSVReader.Read("small");
         //Dialogue test = new Dialogue(0, data[0]);
-    }
+        
 
+    }
+    
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
