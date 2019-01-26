@@ -1,0 +1,7 @@
+Speaker,ID,Short Text,Long Text,Default,Other (note which option would cause a change in stress and expression
+RA9,A,-,With whom am I speaking?,,
+Gavin,B,,(There is a pause) ,,Expression: Tense
+Gavin,C,It's Gavin Reed,The name is Gavin Reed,A,Expression: Tense
+Gavin,D,You called first,You're the one who made the call. Why don't you tell me your name first?,,Expression: Tense
+Gavin,E,[LIE] It's Brian Collins,My name's Brian Collins ,,Expression: Tense
+RA9,,,,,

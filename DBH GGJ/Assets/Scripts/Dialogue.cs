@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+
 
 public struct Stress
 {
@@ -24,16 +26,17 @@ public struct Portrait
 
 public class Dialogue
 {
-    string ID,//Unique name for internal referencing
+    string 
+        ID,//Unique name for internal referencing
         shortText,//text that displays when this dialogue option is listed as a choice
         longText,//the resulting full text that results from clicking the shortText as a button
         speaker,//who is speaking "Gavin" for gav, anything else for the perp
         defaultOption;//... the default option from the list of options below
     List<string> options;//strings are IDs of other dialogue options to list as options for this dialogue encounter
     List<Stress> stressCosts;//associated with each entry in options, represents stress changes per char for that choice
+    List<Portrait> portraitTransitions;//list of portrait types as well as times to set the character talking to, visually
 
     public Dialogue(string rawInput)
     {
-        //parse code function call here
     }
 }
