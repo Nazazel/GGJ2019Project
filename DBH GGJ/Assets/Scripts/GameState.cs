@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class GameState : MonoBehaviour
 {
     public float GavinStress;// stress value of gavin
@@ -22,6 +22,8 @@ public class GameState : MonoBehaviour
         CurrentTimer = 0;
         GavinPortrait = "Default";
         PerpPortrait = "Default";
+        
+        
     }
 
     
@@ -48,10 +50,11 @@ public class GameState : MonoBehaviour
 
     /// <summary>
     /// updates the timer the amount of time you have for dialouge choices 
+    /// rounds MaxTimer to nearest 0.5
     /// </summary>
     // <param name="time"></param>
     public void SetMaxTimer(float max, float PotentialPenalty) {
-        MaxTimer = max - ((PerpStress/100)*PotentialPenalty);
+        MaxTimer = (float)Math.Round( (max - ( (PerpStress/100)*PotentialPenalty)) *2 )/2;
         CurrentTimer = 0;
     }
     /// <summary>
