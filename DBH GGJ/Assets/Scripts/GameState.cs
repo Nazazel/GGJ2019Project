@@ -58,7 +58,7 @@ public class GameState : MonoBehaviour
     /// </summary>
     // <param name="time"></param>
     public void SetMaxTimer(float max, float PotentialPenalty) {
-        MaxTimer = (float)Math.Round( (max - ( (PerpStress/100)*PotentialPenalty)) *2 )/2;
+        MaxTimer = (float)Math.Round((max - ((PerpStress / 100) * PotentialPenalty)) * 2) / 2;
         CurrentTimer = 0;
     }
     /// <summary>
@@ -82,7 +82,7 @@ public class GameState : MonoBehaviour
     // <param name="newPortrait"></param>
     public void SetPerpPortrait(Portrait newPortrait)
     {
-        PerpPortrait= newPortrait.type;
+        PerpPortrait = newPortrait.type;
     }
 
     /// <summary>
@@ -98,15 +98,20 @@ public class GameState : MonoBehaviour
     /// </summary>
     public void TimerEnd() {
         // fill stuff to do when timer ends
+        Debug.Log("tick");
     }
 
     /// <summary>
     /// timer, increments CurrentTimer till reaches MaxTimer Value
+    /// Increment the currentTimer 
     /// </summary>
-    public void StartTimer(float period) {
+    public void TickTimer(float period) {
         float PostTime = Time.time + period;
-        while (CurrentTimer != MaxTimer) {
+        //while there is still time in the main timer
+        while (CurrentTimer <= MaxTimer) {
+            //check if its been period length of time since called this fxn
             if (Time.time > PostTime) {
+                //add that time period to the current timer nad postTimer, to setup for next tick
                 CurrentTimer += period;
                 PostTime += period;
             }
@@ -115,8 +120,8 @@ public class GameState : MonoBehaviour
     }
 
     public void UpdateMeter() {
-        PerpMeter.fillAmount = (float)Math.Min(100,PerpStress);
-        GavinMeter.fillAmount = (float)Math.Min(100, GavinStress);
+        PerpMeter.fillAmount = Math.Min(100, PerpStress);
+        GavinMeter.fillAmount = Math.Min(100, GavinStress);
     }
 
     /// <summary>
