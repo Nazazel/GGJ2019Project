@@ -50,8 +50,8 @@ public class GameState : MonoBehaviour
     /// updates the timer the amount of time you have for dialouge choices 
     /// </summary>
     // <param name="time"></param>
-    public void SetMaxTimer(float time) {
-        MaxTimer = time;
+    public void SetMaxTimer(float max, float PotentialPenalty) {
+        MaxTimer = max - ((PerpStress/100)*PotentialPenalty);
         CurrentTimer = 0;
     }
     /// <summary>
