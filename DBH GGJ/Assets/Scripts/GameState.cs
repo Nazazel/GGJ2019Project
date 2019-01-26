@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    float GavinStress;// stress value of gavin
-    float PerpStress;// stress value of perp
-    float MaxTimer;     // dailouge choice timer
-    float CurrentTimer; // current time 
-    string GavinPortrait; //current portrait for gavin
-    string PerpPortrait; //current portrait for perp
+    public float GavinStress;// stress value of gavin
+    public float PerpStress;// stress value of perp
+    public float MaxTimer;     // dailouge choice timer
+    public float CurrentTimer; // current time 
+    public string GavinPortrait; //current portrait for gavin
+    public string PerpPortrait; //current portrait for perp
 
 
 
@@ -29,16 +29,28 @@ public class GameState : MonoBehaviour
     ///   add the associated stress values to each character from the passed stress struct 
     /// </summary>
     // <param name="StressVal"></param>
-    void UpdateStress(Stress StressVal) {
+    public void UpdateStress(Stress StressVal) {
         GavinStress += StressVal.gavStress;
         PerpStress += StressVal.perpStress;
     }
+    /// <summary>
+    /// return the current stress
+    /// </summary>
+    /// <returns></returns>
+    public Stress GetStress() {
+        Stress CurStress;
+        CurStress.gavStress = GavinStress;
+        CurStress.perpStress = PerpStress;
+        return CurStress;
+    }
+
+ 
 
     /// <summary>
     /// updates the timer the amount of time you have for dialouge choices 
     /// </summary>
     // <param name="time"></param>
-    void SetMaxTimer(float time) {
+    public void SetMaxTimer(float time) {
         MaxTimer = time;
         CurrentTimer = 0;
     }
@@ -46,38 +58,46 @@ public class GameState : MonoBehaviour
     //// updates Gavin's portrait state with the new passed struct 
     /// </summary>
     //<param name="newPortrait"></param>
-    void SetGavPortrait(Portrait newPortrait) {
+    public void SetGavPortrait(Portrait newPortrait) {
         GavinPortrait = newPortrait.type;
     }
 
-
+    public string GetGavPort() {
+        return GavinPortrait;
+    }   
 
     /// <summary>
     /// updates the perp's portrait state with the new passed struct 
     /// </summary>
     // <param name="newPortrait"></param>
-    void SetPerpPortrait(Portrait newPortrait)
+    public void SetPerpPortrait(Portrait newPortrait)
     {
         PerpPortrait= newPortrait.type;
+    }
+
+    public string GetPerpPort()
+    {
+        return PerpPortrait;
     }
 
     /// <summary>
     /// stuff to do when timer ends
     /// </summary>
-    void TimerEnd() {
+    public void TimerEnd() {
         // fill stuff to do when timer ends
     }
 
     /// <summary>
     /// timer, increments CurrentTimer till reaches MaxTimer Value
     /// </summary>
-    void StartTimer() {
+    public void StartTimer() {
         while (CurrentTimer != MaxTimer) {
             CurrentTimer += Time.deltaTime;
         }
         TimerEnd();
     }
 
+    
 
     // Update is called once per frame
     void Update()
