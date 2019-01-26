@@ -1,0 +1,6 @@
+speaker,shortText,longText,options,default,stressCosts,maxTimer,maxStressTimePenalty,portraitTransitions
+RA9,-,With whom am I speaking?,a3,3,"(0, 0)",10.0,0.0,"(Tense, 0)"
+Gavin,,(There is a pause) ,"a4,5,6",4,"(0, 0), (0, 0), (0, 0)",15.0,0.0,"(Tense, 0)"
+Gavin,It's Gavin Reed,The name is Gavin Reed,a7,7,"(0, 0)",10.0,0.0,"(Tense, 0)"
+Gavin,You called first,You're the one who made the call. Why don't you tell me your name first?,a8,8,"(0, 0)",10.0,0.0,"(Tense, 0)"
+Gavin,[LIE] It's Brian Collins,My name's Brian Collins ,a9,9,"(0, 0)",10.0,0.0,"(Tense, 0)"

@@ -8,11 +8,8 @@ public class TestingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        List<Dictionary<string, object>> data = CSVReader.Read("test");
-        for (int i = 0; i < data.Count; ++i)
-        {
-            Debug.Log("Speaker" + data[i]["Speaker"]);
-        }
+        //List<Dictionary<string, object>> data = CSVReader.Read("small");
+        //Dialogue test = new Dialogue(0, data[0]);
     }
 
     // Update is called once per frame
