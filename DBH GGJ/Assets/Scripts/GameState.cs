@@ -5,8 +5,8 @@ using UnityEngine.UI;
 using System;
 public class GameState : MonoBehaviour
 {
-    public float GavinStress;// stress value of gavin
-    public float PerpStress;// stress value of perp
+     float GavinStress;// stress value of gavin
+     float PerpStress;// stress value of perp
     public float timerTickRate;//the amount of time, in seconds that the timer increments at
     public float MaxTimer;     // dailouge choice timer
     public float CurrentTimer; // current time 
@@ -14,6 +14,7 @@ public class GameState : MonoBehaviour
     public string PerpPortrait; //current portrait for perp
     public Image GavinMeter;
     public Image PerpMeter;
+    public Image timerImage;
     public textBoxTransition box;
 
 
@@ -26,8 +27,9 @@ public class GameState : MonoBehaviour
         CurrentTimer = 0;
         GavinPortrait = "Default";
         PerpPortrait = "Default";
-        //PerpMeter.fillAmount = 0;
-        //GavinMeter.fillAmount = 0;
+        PerpMeter.fillAmount = 0;
+        GavinMeter.fillAmount = 0;
+        timerImage.fillAmount = 0;
         StartCoroutine(AdvanceTimer(timerTickRate));
     }
 
