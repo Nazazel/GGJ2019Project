@@ -6,10 +6,10 @@ public class GameState : MonoBehaviour
 {
     float GavinStress;// stress value of gavin
     float PerpStress;// stress value of perp
-    float Timer;     // dailouge choice timer
-   
+    float MaxTimer;     // dailouge choice timer
+    float CurrentTimer; // current time 
     string GavinPortrait; //current portrait for gavin
-    string PortraitPerp; //current portrait for perp
+    string PerpPortrait; //current portrait for perp
 
 
 
@@ -18,7 +18,10 @@ public class GameState : MonoBehaviour
     {
         GavinStress = 0;
         PerpStress = 0;
-        Timer = 0;
+        MaxTimer = 0;
+        CurrentTimer = 0;
+        GavinPortrait = "Default";
+        PerpPortrait = "Default";
     }
 
     
@@ -35,14 +38,15 @@ public class GameState : MonoBehaviour
     /// updates the timer the amount of time you have for dialouge choices 
     /// </summary>
     // <param name="time"></param>
-    void UpdateTimer(float time) {
-        Timer = time;
+    void SetMaxTimer(float time) {
+        MaxTimer = time;
+        CurrentTimer = 0;
     }
     /// <summary>
     //// updates Gavin's portrait state with the new passed struct 
     /// </summary>
     //<param name="newPortrait"></param>
-    void UpdateGavPortrait(Portrait newPortrait) {
+    void SetGavPortrait(Portrait newPortrait) {
         GavinPortrait = newPortrait.type;
     }
 
@@ -53,9 +57,9 @@ public class GameState : MonoBehaviour
     /// updates the perp's portrait state with the new passed struct 
     /// </summary>
     // <param name="newPortrait"></param>
-    void UpdatePerpPortrait(Portrait newPortrait)
+    void SetPerpPortrait(Portrait newPortrait)
     {
-        GavinPortrait = newPortrait.type;
+        PerpPortrait= newPortrait.type;
     }
 
     // Update is called once per frame
