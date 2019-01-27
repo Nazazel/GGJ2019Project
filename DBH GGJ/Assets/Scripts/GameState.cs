@@ -16,8 +16,7 @@ public class GameState : MonoBehaviour
     public Image PerpMeter;
     public Image timerImage;
     public textBoxTransition box;
-    int DefaultChoice;
-    List<int> choices;
+    public GraphPos dialouge;
     public GraphPos sender;
 
 
@@ -27,6 +26,7 @@ public class GameState : MonoBehaviour
         sender = GetComponent<GraphPos>();
         GavinStress = 0;
         PerpStress = 0;
+        dialouge = GetComponent<GraphPos>();
         //MaxTimer = 0;
         CurrentTimer = 0;
       //  GavinPortrait = "Default";
@@ -37,10 +37,7 @@ public class GameState : MonoBehaviour
         StartCoroutine(AdvanceTimer(timerTickRate));
     }
 
-    public void setDefaultChoices(int d, List<int> dl) {
-        DefaultChoice = d;
-        choices = dl;
-    }
+
 
     private IEnumerator AdvanceTimer(float tickRate)
     {
@@ -122,8 +119,8 @@ public class GameState : MonoBehaviour
     /// </summary>
     private void TimerEnd() {
        
-        for (int i = 0; i < choices.Count; i++) {
-            if (choices[i] == DefaultChoice) {
+        for (int i = 0; i < dialouge.getCurrentDialogue().options.Count; i++) {
+            if (dialouge.getCurrentDialogue().options[i] == dialouge.getCurrentDialogue().defaultOption) {
                 sender.SelectOption(i);
                 break;
             }

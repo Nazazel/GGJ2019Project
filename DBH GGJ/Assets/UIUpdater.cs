@@ -96,10 +96,11 @@ public class UIUpdater : MonoBehaviour
     {
         Dialogue dialogue = gp.getCurrentDialogue();
         //longtext
-        speaker = dialogue.speaker;
-        gs.setDefaultChoices(dialogue.defaultOption,dialogue.options);
+      
         dialogue.options.ForEach(item => Debug.Log("options: " + item));
-        Debug.Log("default: "+dialogue.defaultOption);
+        //audio
+        speaker = dialogue.speaker;
+        //sending the choice data to gamestate
         dialogueUpdate(dialogue.longText);
         //disable all buttons to clear screen
         option1Text.transform.parent.gameObject.SetActive(false);
