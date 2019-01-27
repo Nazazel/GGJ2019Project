@@ -1007,8 +1007,8 @@ MonoBehaviour:
   timerTickRate: 0.25
   MaxTimer: 0
   CurrentTimer: 0
-  GavinMeter: {fileID: 1781780906}
-  PerpMeter: {fileID: 1090476742}
+  GavinMeter: {fileID: 1041221399}
+  PerpMeter: {fileID: 167143012}
   timerImage: {fileID: 1336309574}
   box: {fileID: 1374049761}
   dialouge: {fileID: 0}
