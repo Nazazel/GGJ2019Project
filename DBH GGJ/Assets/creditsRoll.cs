@@ -55,11 +55,11 @@ public class creditsRoll : MonoBehaviour
         }
     }
 
-    public void FadeToClear()
+    public void FadeToClear                                                                                        ()
     {
         //Bug: this gets called again whenever Level One is entered
         FadeImg.color = Color.Lerp(FadeImg.color, Color.clear, fadeSpeed * Time.deltaTime);
-        if (FadeImg.color.a < 0.1f)
+        if (FadeImg.color.a < 0.05f)
         {
             CancelInvoke("FadeToClear");
             FadeImg.color = Color.clear;

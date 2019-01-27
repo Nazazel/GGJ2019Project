@@ -223,7 +223,7 @@ MonoBehaviour:
   currentLine: 0
   endAtLine: 0
   started: 0
-  fadeSpeed: 1.5
+  fadeSpeed: 10
   FadeImg: {fileID: 250653029}
 --- !u!4 &168457671
 Transform:
