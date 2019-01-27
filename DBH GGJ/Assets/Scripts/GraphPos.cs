@@ -38,7 +38,7 @@ public class GraphPos : MonoBehaviour
         {
             uup.updateAll(true);
             Invoke("startFadeOut",7);
-            Invoke("callEndGame", 14);
+            Invoke("callEndGame", 9);
             Destroy(gs);
             return;
         }
@@ -59,7 +59,6 @@ public class GraphPos : MonoBehaviour
     }
     private void callEndGame()
     {
-        
         SceneManager.LoadScene("GameOver");
     }
 
@@ -77,6 +76,7 @@ public class GraphPos : MonoBehaviour
             case 29:
                 if(gs.GetStress().perpStress >= 70)
                 {
+                    cursor = 67;
                     return true;
                 }
                 else
@@ -87,6 +87,7 @@ public class GraphPos : MonoBehaviour
             case 56:
                 if (gs.GetStress().perpStress >= 80)
                 {
+                    cursor = 69;
                     return true;
                 }
                 else
@@ -98,6 +99,7 @@ public class GraphPos : MonoBehaviour
             case 64:
                 if (gs.GetStress().perpStress >= 90)
                 {
+                    cursor = 69;
                     return true;
                 }
                 else
@@ -109,6 +111,7 @@ public class GraphPos : MonoBehaviour
             case 36:
                 if (gs.GetStress().gavStress >= 60)
                 {
+                    cursor = 68;
                     return true;
                 }
                 else
@@ -119,6 +122,7 @@ public class GraphPos : MonoBehaviour
             case 52:
                 if (gs.GetStress().gavStress >= 90)
                 {
+                    cursor = 68;
                     return true;
                 }
                 else
@@ -130,9 +134,12 @@ public class GraphPos : MonoBehaviour
                 break;
             //bad ending
             case 45:
+                cursor = 66;
+                Debug.Log("bad ending detected");
                 return true;
             //good ending
             case 63:
+                cursor = 65;
                 return true;
                 //audio shift points
             case 32:
