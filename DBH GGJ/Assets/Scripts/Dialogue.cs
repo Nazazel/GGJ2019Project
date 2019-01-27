@@ -34,7 +34,7 @@ public class Dialogue
         defaultOption;//the unique identifier for this diaglogue object
     public float maxTimer, maxStressTimePenalty;//max time and max time lost due to stress, respectively
     public List<int> options;//IDs of other Dialogue entries that are options in response to this dialogue.
-    public List<Stress> stressCosts;//associated with each entry in options, represents stress changes per char for that choice
+    public Stress stressCost;//represents stress change per char for this dialogue state
     public List<Portrait> portraitTransitions;//list of portrait types as well as times to set the character talking to, visually
 
     public Dialogue(int id, Dictionary<string, object> input)
@@ -56,18 +56,13 @@ public class Dialogue
             options.Add(int.Parse(st.Trim()));
         }
         //building stressCosts list using n from last list
-        s = (string)input["stressCosts"];
-        stressCosts = new List<Stress>();
+        s = (string)input["stressCost"];
         string[] toGrabFrom = s.Replace("(", "").Replace(")", "").Replace(" ", "").Split(',');
-        for (int i = 0; i < n; i += 2)
-        {
-            stressCosts.Add(new Stress(float.Parse(toGrabFrom[i]), float.Parse(toGrabFrom[i + 1])));
-        }
+        stressCost = new Stress(float.Parse(toGrabFrom[0]), float.Parse(toGrabFrom[1]));
         //building portrait list using n from last list
         s = (string)input["portraitTransitions"];
         portraitTransitions = new List<Portrait>();
         toGrabFrom = s.Replace("(", "").Replace(")", "").Replace(" ", "").Split(',');
-        Debug.Log(toGrabFrom.Length);
         for (int i = 0; i < toGrabFrom.Length; i += 2)
         {
             portraitTransitions.Add(new Portrait(toGrabFrom[i], float.Parse(toGrabFrom[i + 1])));

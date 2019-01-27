@@ -50,6 +50,7 @@ public class GameState : MonoBehaviour
     public void UpdateStress(Stress StressVal) {
         GavinStress += StressVal.gavStress;
         PerpStress += StressVal.perpStress;
+        Debug.Log("GavStress: " + GavinStress + "\nRA9Stress: " + PerpStress);
     }
     /// <summary>
     /// return the current stress
@@ -109,7 +110,7 @@ public class GameState : MonoBehaviour
     /// stuff to do when timer ends
     /// </summary>
     private void TimerEnd() {
-        Debug.Log(CurrentTimer);
+        //Debug.Log(CurrentTimer);
     }
 
     /// <summary>
@@ -138,7 +139,7 @@ public class GameState : MonoBehaviour
     public void UpdateImages() {
         PerpMeter.fillAmount = (float)Math.Min(100,PerpStress);
         GavinMeter.fillAmount = (float)Math.Min(100, GavinStress);
-        timerImage.fillAmount = (float)Math.Min(MaxTimer, CurrentTimer);
+        timerImage.fillAmount = (float)Math.Min(MaxTimer, CurrentTimer / MaxTimer);
 
     }
 

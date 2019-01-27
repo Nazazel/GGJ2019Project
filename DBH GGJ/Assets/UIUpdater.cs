@@ -81,11 +81,20 @@ public class UIUpdater : MonoBehaviour
         //shorttext
         for (int i = 0; i < dialogue.options.Count; ++i)
         {
-
             optionUpdate(gp.graph[dialogue.options[i]].shortText, i + 1);
         }
-
+        //stress
+        gs.UpdateStress(dialogue.stressCost);
+        //timer
+        gs.SetMaxTimer(dialogue.maxTimer, dialogue.maxStressTimePenalty);
+        //portraitTransitions
+        if(dialogue.speaker == "Gavin")
+        {
+            gs.SetGavPortrait(dialogue.portraitTransitions[0]);
+        }
+        else
+        {
+            gs.SetPerpPortrait(dialogue.portraitTransitions[0]);
+        }
     }
-
-
 }

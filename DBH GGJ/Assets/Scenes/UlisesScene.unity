@@ -602,6 +602,7 @@ GameObject:
   - component: {fileID: 937764797}
   - component: {fileID: 937764796}
   - component: {fileID: 937764798}
+  - component: {fileID: 937764799}
   m_Layer: 0
   m_Name: Graph
   m_TagString: Untagged
@@ -653,6 +654,27 @@ MonoBehaviour:
   option2Text: {fileID: 129271685}
   option3Text: {fileID: 152322351}
   TyperDelay: 0.01
+--- !u!114 &937764799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937764795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c9c2b8f9d847943b2124dd6fa342ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerTickRate: 0.25
+  MaxTimer: 0
+  CurrentTimer: 0
+  GavinPortrait: 
+  PerpPortrait: 
+  GavinMeter: {fileID: 0}
+  PerpMeter: {fileID: 0}
+  timerImage: {fileID: 0}
+  box: {fileID: 0}
 --- !u!1 &1041221397
 GameObject:
   m_ObjectHideFlags: 0
