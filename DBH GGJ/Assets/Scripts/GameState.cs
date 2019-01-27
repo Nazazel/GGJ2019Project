@@ -20,8 +20,33 @@ public class GameState : MonoBehaviour
     public GraphPos sender;
     public UIUpdater UI;
 
+
+    float GMAxStress;
+    float PMaxStress;
+
     public Image GavImage;
     public Image PerpImage;
+
+
+    //perp Images
+    public Sprite PNeutral;
+    public Sprite PAngry;
+    public Sprite PImpressed;
+    public Sprite PFurious;
+    public Sprite PArrogant;
+    public Sprite PProphetic;
+    //
+
+    //Gav iamges
+    public Sprite GNeutral;
+    public Sprite GAngry;
+    public Sprite GSuprised;
+    public Sprite GFearful;
+    public Sprite GTense;
+    public Sprite GPanic;
+    public Sprite GArrogant;
+
+    //
 
 
     // Start is called before the first frame update
@@ -40,8 +65,12 @@ public class GameState : MonoBehaviour
         GavinMeter.fillAmount = 0;
         timerImage.fillAmount = 0;
         StartCoroutine(AdvanceTimer(timerTickRate));
+        GMAxStress = 100;
+        PMaxStress = 100;
     }
 
+    void GavStressSet(float i) { GMAxStress = i; }
+    void PerpStresSet(float i) { PMaxStress = i; }
 
 
     private IEnumerator AdvanceTimer(float tickRate)
@@ -119,7 +148,7 @@ public class GameState : MonoBehaviour
         return PerpPortrait;
     }
 
-    
+ 
 
     /// <summary>
     /// stuff to do when timer ends
@@ -144,6 +173,9 @@ public class GameState : MonoBehaviour
     /// <summary>
     /// ticks time for conversation
     /// </summary>
+    /// 
+
+
     private void TickTimer(float seconds)
     {
         //increment currentTimer if wouldnt put past max time, else set to max time
@@ -175,13 +207,17 @@ public class GameState : MonoBehaviour
     /// put in update to continuosly update the fillamount of the images 
     /// </summary>
     public void UpdateImages() {
-        PerpMeter.fillAmount = (float)Math.Min(100,PerpStress);
-        GavinMeter.fillAmount = (float)Math.Min(100, GavinStress);
+        PerpMeter.fillAmount = (float)Math.Min(PMaxStress,PerpStress);
+        GavinMeter.fillAmount = (float)Math.Min(GMAxStress, GavinStress);
         timerImage.fillAmount = (float)Math.Min(MaxTimer, CurrentTimer / MaxTimer);
         if (CurrentTimer==MaxTimer)
         {
             Debug.Log("timer end");
             TimerEnd();
+        }
+
+        if (PerpPortrait.Count == 1) {
+            if (PerpPortrait[0].type == "Tense") { PerpImage.sprite = GTense; }
         }
 
     }
