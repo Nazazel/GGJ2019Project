@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GraphPos : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GraphPos : MonoBehaviour
     private int cursor;//stores an int because all dialogues are uniquely ID by an int
     private GameState gs;
     private UIUpdater uup;
+    private gameOverTransition trans;
     void Awake()
     {
         cursor = spawnDialogue;
@@ -26,6 +28,7 @@ public class GraphPos : MonoBehaviour
         gs = GetComponent<GameState>();
         uup = GetComponent<UIUpdater>();
         bgm = GameObject.Find("BGM").GetComponent<BGM>();
+        trans = GameObject.Find("Transition").GetComponent<gameOverTransition>();
     }
 
     public void SelectOption(int selectedButtonIndex)
@@ -34,7 +37,7 @@ public class GraphPos : MonoBehaviour
         if (checkHardCodedInteractions())
         {
             uup.updateAll(true);
-            Invoke("callEndGame", 1);
+            Invoke("callEndGame", 10);
             Destroy(gs);
             return;
         }
@@ -52,8 +55,8 @@ public class GraphPos : MonoBehaviour
 
     private void callEndGame()
     {
-        Debug.Log("Game done nerd.");
-        //TODO: add the function ulises is writing now over here
+        trans.FadeOut();
+        SceneManager.LoadScene("GameOver");
     }
 
     public Dialogue getCurrentDialogue()
