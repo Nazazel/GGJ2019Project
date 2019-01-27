@@ -16,11 +16,15 @@ public class GameState : MonoBehaviour
     public Image PerpMeter;
     public Image timerImage;
     public textBoxTransition box;
+    int DefaultChoice;
+    List<int> choices;
+    public GraphPos sender;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        sender = GetComponent<GraphPos>();
         GavinStress = 0;
         PerpStress = 0;
         //MaxTimer = 0;
@@ -31,6 +35,11 @@ public class GameState : MonoBehaviour
         GavinMeter.fillAmount = 0;
         timerImage.fillAmount = 0;
         StartCoroutine(AdvanceTimer(timerTickRate));
+    }
+
+    public void setDefaultChoices(int d, List<int> dl) {
+        DefaultChoice = d;
+        choices = dl;
     }
 
     private IEnumerator AdvanceTimer(float tickRate)
@@ -97,7 +106,7 @@ public class GameState : MonoBehaviour
     public void SetPerpPortrait(List<Portrait> newPortrait)
     {
         PerpPortrait= newPortrait;
-        Debug.Log(GetPerpPort());
+        Debug.Log(GetPerpPort().ToString());
     }
 
     /// <summary>
@@ -112,7 +121,15 @@ public class GameState : MonoBehaviour
     /// stuff to do when timer ends
     /// </summary>
     private void TimerEnd() {
-        //Debug.Log(CurrentTimer);
+       
+        for (int i = 0; i < choices.Count; i++) {
+            if (choices[i] == DefaultChoice) {
+                sender.SelectOption(i);
+                break;
+            }
+        }
+        
+
     }
 
     /// <summary>
@@ -124,7 +141,7 @@ public class GameState : MonoBehaviour
         CurrentTimer = ((CurrentTimer + seconds) >= MaxTimer) ? MaxTimer : (CurrentTimer + seconds);
         //to make sure rounding errors dont compound and run away, round to nearest valid timeTickRate interval
         CurrentTimer = Mathf.Round(CurrentTimer * 1 / timerTickRate) * timerTickRate;
-        TimerEnd();
+        
     }
 
     /// <summary>
@@ -142,6 +159,11 @@ public class GameState : MonoBehaviour
         PerpMeter.fillAmount = (float)Math.Min(100,PerpStress);
         GavinMeter.fillAmount = (float)Math.Min(100, GavinStress);
         timerImage.fillAmount = (float)Math.Min(MaxTimer, CurrentTimer / MaxTimer);
+        if (CurrentTimer==MaxTimer)
+        {
+            Debug.Log("timer end");
+            TimerEnd();
+        }
 
     }
 
@@ -161,6 +183,7 @@ public class GameState : MonoBehaviour
     void Update()
     {
         UpdateImages();
+        
 
     }
 }
