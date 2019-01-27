@@ -21,8 +21,8 @@ public class GameState : MonoBehaviour
     public UIUpdater UI;
 
 
-    float GMAxStress;
-    float PMaxStress;
+    float GMaxStress = 60;
+    float PMaxStress = 70;
 
     public Image GavImage;
     public Image PerpImage;
@@ -67,12 +67,12 @@ public class GameState : MonoBehaviour
         GavinMeter.fillAmount = 0;
         timerImage.fillAmount = 0;
         StartCoroutine(AdvanceTimer(timerTickRate));
-        GMAxStress = 100;
+        GMaxStress = 100;
         PMaxStress = 100;
     }
 
-    void GavStressSet(float i) { GMAxStress = i; }
-    void PerpStresSet(float i) { PMaxStress = i; }
+    public void GavStressSet(float i) { GMaxStress = i; }
+    public void PerpStresSet(float i) { PMaxStress = i; }
 
 
     private IEnumerator AdvanceTimer(float tickRate)
@@ -210,7 +210,7 @@ public class GameState : MonoBehaviour
     /// </summary>
     public void UpdateImages() {
         PerpMeter.fillAmount = (float)Math.Min(PMaxStress,PerpStress);
-        GavinMeter.fillAmount = (float)Math.Min(GMAxStress, GavinStress);
+        GavinMeter.fillAmount = (float)Math.Min(GMaxStress, GavinStress);
         timerImage.fillAmount = (float)Math.Min(MaxTimer, CurrentTimer / MaxTimer);
         if (CurrentTimer==MaxTimer)
         {
