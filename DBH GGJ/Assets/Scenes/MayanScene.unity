@@ -654,6 +654,7 @@ MonoBehaviour:
   option2Text: {fileID: 129271685}
   option3Text: {fileID: 152322351}
   GavBlip: {fileID: 8300000, guid: a0ee1158093b3774698e38cceda80834, type: 3}
+  PerpBlip: {fileID: 8300000, guid: f6489361f89fc1548b59cf725357de9d, type: 3}
   TyperDelay: 0.01
 --- !u!82 &937764799
 AudioSource:
