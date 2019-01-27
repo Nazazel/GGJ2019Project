@@ -124,7 +124,9 @@ public class GraphPos : MonoBehaviour
                 Debug.Log("good ending");
                 break;
             //audio shift points
-            case 15:
+            case 12:
+            case 13:
+                bgm.PlayWilhelm();
                 bgm.LowToHigh();
                 break;
             case 26:
