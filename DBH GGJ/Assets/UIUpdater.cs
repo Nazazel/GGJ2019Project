@@ -95,8 +95,10 @@ public class UIUpdater : MonoBehaviour
     public void updateAll()
     {
         Dialogue dialogue = gp.getCurrentDialogue();
+        //textswitch
+        gs.TextSwitch(dialogue.speaker);
+
         //longtext
-      
         dialogue.options.ForEach(item => Debug.Log("options: " + item));
         //audio
         speaker = dialogue.speaker;

@@ -20,6 +20,9 @@ public class GameState : MonoBehaviour
     public GraphPos sender;
     public UIUpdater UI;
 
+    public Image GavImage;
+    public Image PerpImage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -116,6 +119,8 @@ public class GameState : MonoBehaviour
         return PerpPortrait;
     }
 
+    
+
     /// <summary>
     /// stuff to do when timer ends
     /// </summary>
@@ -152,8 +157,18 @@ public class GameState : MonoBehaviour
     /// switches textbox based on speaker name passed 
     /// </summary>
     public void TextSwitch(string name) {
-        if (name == "Gavin"){ box.rightBox(); }
-        if (name =="RA9") { box.leftBox(); }
+        Debug.Log(name);
+
+        if (name == "Gavin"){
+            Debug.Log("G");
+
+            box.rightBox();
+        }
+        if (name =="RA9") {
+            Debug.Log("R");
+
+            box.leftBox();
+        }
     }
 
     /// <summary>
