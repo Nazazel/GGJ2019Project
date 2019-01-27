@@ -10,8 +10,8 @@ public class GameState : MonoBehaviour
     public float timerTickRate;//the amount of time, in seconds that the timer increments at
     public float MaxTimer;     // dailouge choice timer
     public float CurrentTimer; // current time 
-    public Portrait[] GavinPortrait; //current portrait for gavin
-    public Portrait[] PerpPortrait; //current portrait for perp
+    public List<Portrait> GavinPortrait; //current portrait for gavin
+    public List<Portrait> PerpPortrait; //current portrait for perp
     public Image GavinMeter;
     public Image PerpMeter;
     public Image timerImage;
@@ -78,14 +78,15 @@ public class GameState : MonoBehaviour
     //// updates Gavin's portrait state with the new passed struct 
     /// </summary>
     //<param name="newPortrait"></param>
-    public void SetGavPortrait(Portrait[] newPortrait) {
+    public void SetGavPortrait(List<Portrait> newPortrait) {
         GavinPortrait = newPortrait;
+        
     }
 
     /// <summary>
     /// returns gavins portrait string 
     /// </summary>
-    public Portrait[] GetGavPort() {
+    public List<Portrait> GetGavPort() {
         return GavinPortrait;
     }   
 
@@ -93,15 +94,16 @@ public class GameState : MonoBehaviour
     /// updates the perp's portrait state with the new passed struct 
     /// </summary>
     // <param name="newPortrait"></param>
-    public void SetPerpPortrait(Portrait[] newPortrait)
+    public void SetPerpPortrait(List<Portrait> newPortrait)
     {
         PerpPortrait= newPortrait;
+        Debug.Log(GetPerpPort());
     }
 
     /// <summary>
     /// returns Perp portrait string 
     /// </summary>
-    public Portrait[] GetPerpPort()
+    public List<Portrait> GetPerpPort()
     {
         return PerpPortrait;
     }

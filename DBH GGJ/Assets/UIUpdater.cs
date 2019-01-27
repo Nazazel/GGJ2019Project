@@ -114,11 +114,11 @@ public class UIUpdater : MonoBehaviour
         //portraitTransitions
         if(dialogue.speaker == "Gavin")
         {
-            gs.SetGavPortrait(dialogue.portraitTransitions[0]);
+            gs.SetGavPortrait(dialogue.portraitTransitions);
         }
         else
         {
-            gs.SetPerpPortrait(dialogue.portraitTransitions[0]);
+            gs.SetPerpPortrait(dialogue.portraitTransitions);
         }
     }
 }
