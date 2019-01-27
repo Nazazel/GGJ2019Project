@@ -984,7 +984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c9c2b8f9d847943b2124dd6fa342ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerTickRate: 0.25
+  timerTickRate: 0.05
   MaxTimer: 0
   CurrentTimer: 0
   GavinMeter: {fileID: 1041221399}
@@ -1841,7 +1841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -312, y: -137}
+  m_AnchoredPosition: {x: -312, y: 205.4}
   m_SizeDelta: {x: 624.7, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1421620569
@@ -2261,7 +2261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -312, y: 205.4}
+  m_AnchoredPosition: {x: -312, y: -137}
   m_SizeDelta: {x: 624.7, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1692795651
