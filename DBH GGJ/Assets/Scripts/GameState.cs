@@ -52,6 +52,8 @@ public class GameState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GavinPortrait = new List<Portrait>();
+        PerpPortrait = new List<Portrait>();
         UI = GetComponent<UIUpdater>();
         sender = GetComponent<GraphPos>();
         GavinStress = 0;
@@ -90,7 +92,7 @@ public class GameState : MonoBehaviour
     public void UpdateStress(Stress StressVal) {
         GavinStress += StressVal.gavStress;
         PerpStress += StressVal.perpStress;
-        Debug.Log("GavStress: " + GavinStress + "\nRA9Stress: " + PerpStress);
+        //Debug.Log("GavStress: " + GavinStress + "\nRA9Stress: " + PerpStress);
     }
     /// <summary>
     /// return the current stress
@@ -137,7 +139,7 @@ public class GameState : MonoBehaviour
     public void SetPerpPortrait(List<Portrait> newPortrait)
     {
         PerpPortrait= newPortrait;
-        Debug.Log(GetPerpPort().ToString());
+     //   Debug.Log(GetPerpPort().ToString());
     }
 
     /// <summary>
@@ -158,8 +160,8 @@ public class GameState : MonoBehaviour
         for (int i = 0; i < dialouge.getCurrentDialogue().options.Count; i++) {
             if (dialouge.getCurrentDialogue().options[i] == dialouge.getCurrentDialogue().defaultOption) {
                
-                Debug.Log("amount of options: " + dialouge.getCurrentDialogue().options.Count);
-                Debug.Log("option i choose was: " + i);
+             //   Debug.Log("amount of options: " + dialouge.getCurrentDialogue().options.Count);
+            //    Debug.Log("option i choose was: " + i);
                 sender.SelectOption(i);
                 CurrentTimer = 0;
                 UI.updateAll();
@@ -192,12 +194,12 @@ public class GameState : MonoBehaviour
         Debug.Log(name);
 
         if (name == "Gavin"){
-            Debug.Log("G");
+            //Debug.Log("G");
 
             box.rightBox();
         }
         if (name =="RA9") {
-            Debug.Log("R");
+           // Debug.Log("R");
 
             box.leftBox();
         }
@@ -212,12 +214,30 @@ public class GameState : MonoBehaviour
         timerImage.fillAmount = (float)Math.Min(MaxTimer, CurrentTimer / MaxTimer);
         if (CurrentTimer==MaxTimer)
         {
-            Debug.Log("timer end");
+           // Debug.Log("timer end");
             TimerEnd();
         }
 
-        if (PerpPortrait.Count == 1) {
-            if (PerpPortrait[0].type == "Tense") { PerpImage.sprite = GTense; }
+        if (GavinPortrait.Count == 1) {
+            Debug.Log(GavinPortrait[0].type);
+            if (GavinPortrait[0].type == "Tense") { GavImage.sprite = GTense; }
+            if (GavinPortrait[0].type == "Neutral") { GavImage.sprite = GNeutral; }
+            if (GavinPortrait[0].type == "Surprised") { GavImage.sprite = GSuprised; }
+            if (GavinPortrait[0].type == "Fearful") { GavImage.sprite = GFearful; }
+            if (GavinPortrait[0].type == "Angry") { GavImage.sprite = GAngry; }
+            if (GavinPortrait[0].type == "Panic") { GavImage.sprite = GPanic; }
+            if (GavinPortrait[0].type == "Arrogant") { GavImage.sprite = GArrogant; }
+        }
+        if (PerpPortrait.Count == 1)
+        {
+            Debug.Log(PerpPortrait[0].type);
+            if (PerpPortrait[0].type == "Impressed") { PerpImage.sprite = PImpressed; }
+            if (PerpPortrait[0].type == "Neutral") { PerpImage.sprite = PNeutral; }
+            if (PerpPortrait[0].type == "Furious") { PerpImage.sprite = PFurious; }
+            if (PerpPortrait[0].type == "Prophetic") { PerpImage.sprite = PProphetic; }
+            if (PerpPortrait[0].type == "Angry") { PerpImage.sprite = PAngry; }
+            if (PerpPortrait[0].type == "Arrogant") { PerpImage.sprite = PArrogant; }
+
         }
 
     }
