@@ -671,10 +671,10 @@ MonoBehaviour:
   CurrentTimer: 0
   GavinPortrait: 
   PerpPortrait: 
-  GavinMeter: {fileID: 0}
-  PerpMeter: {fileID: 0}
-  timerImage: {fileID: 0}
-  box: {fileID: 0}
+  GavinMeter: {fileID: 1781780906}
+  PerpMeter: {fileID: 1090476742}
+  timerImage: {fileID: 1336309574}
+  box: {fileID: 1374049761}
 --- !u!1 &1041221397
 GameObject:
   m_ObjectHideFlags: 0
