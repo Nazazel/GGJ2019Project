@@ -9,22 +9,22 @@ public class MenuManager : MonoBehaviour
 
     public void newGame()
     {
-        //SceneManager.LoadScene("MainLevel");
+        SceneManager.LoadScene("MainLevel");
     }
 
     public void credits()
     {
-        //SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("Credits");
     }
 
     public void retry()
     {
-        //SceneManager.LoadScene("MainLevel");
+        SceneManager.LoadScene("MainLevel");
     }
 
     public void mainMenu()
     {
-        //SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void quit()
