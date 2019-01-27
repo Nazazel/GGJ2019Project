@@ -64,3 +64,7 @@ RA9,,"Ah, I see (he chuckles) Sounds like my ride is here. Hardly matters though
 RA9,,You're a horrible liar.,a63,63,"(0, 0)",10.0,0.0,"(Neutral,0)"
 RA9,(door gets kicked in on Killer's end),(The sound of multiple gunshots reverberate over the phone),a9001,420,"(0, 0)",10.0,0.0,"(Neutral,0)"
 RA9,(Killer interjects),(The Killer interrupts with a scoff before abruptly hanging up the phone),a9001,420,"(0, 0)",10.0,0.0,"(Neutral,0)"
+RA9 ,,(The Killer hangs up with a chuckle),a70,70,"(0, 0)",10.0,0.0,"(Neutral,0)"
+Gavin,,"(Just when the detective thought his heart couldn't beat any faster, it did. His hands began to violently tremble as fear overrided his desire to learn more about the killer's intentions. Gavin immediately hung up)",a69,69,"(0, 0)",10.0,0.0,"(Neutral,0)"
+Gavin,dfdabdfksj bgdg,,a9001,420,"(0, 0)",10.0,0.0,"(Neutral,0)"
+RA9,<*click*>,,a9001,420,"(0, 0)",10.0,0.0,"(Neutral,0)"

@@ -10,6 +10,7 @@ public class GraphPos : MonoBehaviour
     private BGM bgm;
     private int cursor;//stores an int because all dialogues are uniquely ID by an int
     private GameState gs;
+    private UIUpdater uup;
     void Awake()
     {
         cursor = spawnDialogue;
@@ -23,6 +24,7 @@ public class GraphPos : MonoBehaviour
     void Start()
     {
         gs = GetComponent<GameState>();
+        uup = GetComponent<UIUpdater>();
         bgm = GameObject.Find("BGM").GetComponent<BGM>();
     }
 
@@ -31,8 +33,9 @@ public class GraphPos : MonoBehaviour
         //will check for a hardcoded interaction, if found it'll execute that and end the game
         if (checkHardCodedInteractions())
         {
-            //load some other scene
-            Debug.Log("End Game!");
+            uup.updateAll(true);
+            Invoke("callEndGame", 1);
+            Destroy(gs);
             return;
         }
 
@@ -47,9 +50,12 @@ public class GraphPos : MonoBehaviour
         }
     }
 
-    //@Ulises: use this function below to get data out, all the members of Dialogue are public. Probably need to read 
-    //options to make it so that when a player clicks a button, it calls the above SelectOption function with the 
-    //correct int value based on index of the ordering in options so as to advance the game state
+    private void callEndGame()
+    {
+        Debug.Log("Game done nerd.");
+        //TODO: add the function ulises is writing now over here
+    }
+
     public Dialogue getCurrentDialogue()
     {
         return graph[cursor];
@@ -64,7 +70,7 @@ public class GraphPos : MonoBehaviour
             case 29:
                 if(gs.GetStress().perpStress >= 70)
                 {
-                    Debug.Log("game over");
+                    return true;
                 }
                 else
                 {
@@ -74,7 +80,7 @@ public class GraphPos : MonoBehaviour
             case 56:
                 if (gs.GetStress().perpStress >= 80)
                 {
-                    Debug.Log("game over");
+                    return true;
                 }
                 else
                 {
@@ -85,7 +91,7 @@ public class GraphPos : MonoBehaviour
             case 64:
                 if (gs.GetStress().perpStress >= 90)
                 {
-                    Debug.Log("game over");
+                    return true;
                 }
                 else
                 {
@@ -96,7 +102,7 @@ public class GraphPos : MonoBehaviour
             case 36:
                 if (gs.GetStress().gavStress >= 60)
                 {
-                    Debug.Log("game over");
+                    return true;
                 }
                 else
                 {
@@ -106,7 +112,7 @@ public class GraphPos : MonoBehaviour
             case 52:
                 if (gs.GetStress().gavStress >= 90)
                 {
-                    Debug.Log("game over");
+                    return true;
                 }
                 else
                 {
@@ -117,24 +123,23 @@ public class GraphPos : MonoBehaviour
                 break;
             //bad ending
             case 45:
-                Debug.Log("bad ending");
-                break;
+                return true;
             //good ending
             case 63:
-                Debug.Log("good ending");
+                return true;
+                //audio shift points
+            case 32:
+            case 39:
+            case 40:
+                bgm.PlayWilhelm();
                 break;
-            //audio shift points
             case 12:
             case 13:
                 bgm.PlayWilhelm();
                 bgm.LowToHigh();
                 break;
             case 26:
-                bgm.LowToHigh();
-                break;
             case 34:
-                bgm.LowToHigh();
-                break;
             case 44:
                 bgm.LowToHigh();
                 break;

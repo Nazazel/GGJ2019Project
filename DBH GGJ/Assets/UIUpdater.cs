@@ -23,6 +23,7 @@ public class UIUpdater : MonoBehaviour
     private GraphPos gp;
     private AudioSource AS;
     private bool MakeSounds;
+    private Coroutine activeTyper;
     private void Start()
     {
         gs = GetComponent<GameState>();
@@ -63,7 +64,11 @@ public class UIUpdater : MonoBehaviour
     //long text
     public void dialogueUpdate(string input)
     {
-        StartCoroutine(Typer(input));
+        if (activeTyper != null)
+        {
+            StopCoroutine(activeTyper);
+        }
+        activeTyper = StartCoroutine(Typer(input));
         StartCoroutine(musicPlayer());
 
         //  dialogueText.text = input;
@@ -92,7 +97,7 @@ public class UIUpdater : MonoBehaviour
         }
     }
 
-    public void updateAll()
+    public void updateAll(bool isLastDialouge = false)
     {
         Dialogue dialogue = gp.getCurrentDialogue();
         //textswitch
@@ -108,9 +113,15 @@ public class UIUpdater : MonoBehaviour
         option2Text.transform.parent.gameObject.SetActive(false);
         option3Text.transform.parent.gameObject.SetActive(false);
         //shorttext
-        for (int i = 0; i < dialogue.options.Count; ++i)
-        {
-            optionUpdate(gp.graph[dialogue.options[i]].shortText, i + 1);
+        if (!isLastDialouge) {// checking ahead for short text is unsafe when there is no next options
+            for (int i = 0; i < dialogue.options.Count; ++i)
+            {
+                optionUpdate(gp.graph[dialogue.options[i]].shortText, i + 1);
+            }
+        }else{
+            Destroy(option1Text.transform.parent.gameObject);
+            Destroy(option2Text.transform.parent.gameObject);
+            Destroy(option3Text.transform.parent.gameObject);
         }
         //stress
         gs.UpdateStress(dialogue.stressCost);
