@@ -25,7 +25,7 @@ public class creditsRoll : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
         //music = gameObject.GetComponent<AudioSource>();
         started = false;
 

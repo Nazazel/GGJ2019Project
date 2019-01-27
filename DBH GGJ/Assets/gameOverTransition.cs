@@ -57,7 +57,7 @@ public class gameOverTransition : MonoBehaviour
         }
     }
 
-    void FadeToBlack()
+    public void FadeToBlack()
     {
         FadeImg.enabled = true;
         FadeImg.color = Color.Lerp(FadeImg.color, Color.black, fadeSpeed * Time.deltaTime);
@@ -65,6 +65,11 @@ public class gameOverTransition : MonoBehaviour
         {
             CancelInvoke("FadeToBlack");
         }
+    }
+
+    public void FadeOut()
+    {
+        InvokeRepeating("FadeToBlack", 0.0f, 0.1f);
     }
 
 

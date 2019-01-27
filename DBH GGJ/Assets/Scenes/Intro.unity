@@ -217,6 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inText: {fileID: 2144349551}
   started: 0
+  transition: {fileID: 1743394610}
 --- !u!4 &727391961
 Transform:
   m_ObjectHideFlags: 0

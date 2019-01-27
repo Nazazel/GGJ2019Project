@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class introController : MonoBehaviour
 { 
     public Text inText;
     public bool started;
+    public gameOverTransition transition;
 
     // Start is called before the first frame update
     void Start()
@@ -71,11 +73,14 @@ public class introController : MonoBehaviour
         inText.text = "She shook her head as sweat beaded near her hairline, \"I think he's killed someone.\"";
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Return));
         yield return new WaitForSeconds(0.1f);
-        inText.text = "The year is 2036";
+        inText.text = "Gavin's eyes rounded, his heart rate skyrocketing in the process";
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Return));
         yield return new WaitForSeconds(0.1f);
-        inText.text = "The year is 2036";
+        inText.text = "\"He's waiting on the phone,\" the operator lowered her head. \"He's only going to talk to an officer,\" she reiterated";
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Return));
         yield return new WaitForSeconds(0.1f);
+        transition.FadeOut();
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("MainLevel");
     }
 }
