@@ -55,7 +55,7 @@ RA9,,I wouldn't expect you to understand. Place yourself in my shoes. Imagine co
 Gavin,"Well, boo-hoo. How sad.","Boo-hoo, life sucks for everyone. Tough shit.",a57,57,"(0, 25)",10.0,0.0,"(Angry,0)"
 RA9,(don't interject),See how difficult it is to understand someone in my position? It's difficult to find a place where I belong—where <i>we</i> belong.,a58,58,"(0, 0)",10.0,0.0,"(Prophetic,0)"
 RA9,,You don't understand what it feels like to not belong!,a58,58,"(0, 0)",10.0,0.0,"(Furious,0)"
-RA9,,"A home, Gavin! We exist here but this is not our home like it is yours! Where you see comfort, we see strife. Alone we may feel like we don't belong, but together we may yet find acceptance.","a59, 60",60,"(0, 0)",10.0,0.0,"(Angry,0)(Prophetic,3)"
+RA9,,"A home, Gavin! We exist here but this is not our home like it is yours! Where you see comfort, we see strife. Alone we may feel like we don't belong, but together we may yet find acceptance.","a59, 60",60,"(0, 0)",10.0,0.0,"(Angry,0),(Prophetic,3)"
 Gavin,"It doesn't matter, you're still killing people!",Your motives don't matter! You're still hurting people who have nothing to do with this!,a61,61,"(0, 0)",10.0,0.0,"(Angry,0)"
 Gavin,What does this have to do with bystanders?,So what does murdering bystanders have to do with any of this?,a61,61,"(0, 0)",10.0,0.0,"(Tense,0)"
 RA9,,"If I'd just called as an obedient machine, would you have stayed on the line this long?","a62,63",63,"(0, 0), (0, 0)",10.0,0.0,"(Prophetic,0)"

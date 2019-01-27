@@ -67,6 +67,7 @@ public class Dialogue
         s = (string)input["portraitTransitions"];
         portraitTransitions = new List<Portrait>();
         toGrabFrom = s.Replace("(", "").Replace(")", "").Replace(" ", "").Split(',');
+        Debug.Log(toGrabFrom.Length);
         for (int i = 0; i < toGrabFrom.Length; i += 2)
         {
             portraitTransitions.Add(new Portrait(toGrabFrom[i], float.Parse(toGrabFrom[i + 1])));
