@@ -218,7 +218,7 @@ public class GameState : MonoBehaviour
             TimerEnd();
         }
 
-        if (GavinPortrait.Count == 1) {
+        
             Debug.Log(GavinPortrait[0].type);
             if (GavinPortrait[0].type == "Tense") { GavImage.sprite = GTense; }
             if (GavinPortrait[0].type == "Neutral") { GavImage.sprite = GNeutral; }
@@ -227,9 +227,17 @@ public class GameState : MonoBehaviour
             if (GavinPortrait[0].type == "Angry") { GavImage.sprite = GAngry; }
             if (GavinPortrait[0].type == "Panic") { GavImage.sprite = GPanic; }
             if (GavinPortrait[0].type == "Arrogant") { GavImage.sprite = GArrogant; }
-        }
-        if (PerpPortrait.Count == 1)
-        {
+        if (GavinPortrait.Count > 1) { if (CurrentTimer > GavinPortrait[1].time) {
+                if (GavinPortrait[1].type == "Tense") { GavImage.sprite = GTense; }
+                if (GavinPortrait[1].type == "Neutral") { GavImage.sprite = GNeutral; }
+                if (GavinPortrait[1].type == "Surprised") { GavImage.sprite = GSuprised; }
+                if (GavinPortrait[1].type == "Fearful") { GavImage.sprite = GFearful; }
+                if (GavinPortrait[1].type == "Angry") { GavImage.sprite = GAngry; }
+                if (GavinPortrait[1].type == "Panic") { GavImage.sprite = GPanic; }
+                if (GavinPortrait[1].type == "Arrogant") { GavImage.sprite = GArrogant; }
+            } }
+       
+        
             Debug.Log(PerpPortrait[0].type);
             if (PerpPortrait[0].type == "Impressed") { PerpImage.sprite = PImpressed; }
             if (PerpPortrait[0].type == "Neutral") { PerpImage.sprite = PNeutral; }
@@ -237,8 +245,17 @@ public class GameState : MonoBehaviour
             if (PerpPortrait[0].type == "Prophetic") { PerpImage.sprite = PProphetic; }
             if (PerpPortrait[0].type == "Angry") { PerpImage.sprite = PAngry; }
             if (PerpPortrait[0].type == "Arrogant") { PerpImage.sprite = PArrogant; }
+        if (PerpPortrait.Count > 1) { if (CurrentTimer > PerpPortrait[1].time) {
 
-        }
+                if (PerpPortrait[1].type == "Impressed") { PerpImage.sprite = PImpressed; }
+                if (PerpPortrait[1].type == "Neutral") { PerpImage.sprite = PNeutral; }
+                if (PerpPortrait[1].type == "Furious") { PerpImage.sprite = PFurious; }
+                if (PerpPortrait[1].type == "Prophetic") { PerpImage.sprite = PProphetic; }
+                if (PerpPortrait[1].type == "Angry") { PerpImage.sprite = PAngry; }
+                if (PerpPortrait[1].type == "Arrogant") { PerpImage.sprite = PArrogant; }
+
+            } }
+        
 
     }
 
