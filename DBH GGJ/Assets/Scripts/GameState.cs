@@ -67,8 +67,6 @@ public class GameState : MonoBehaviour
         GavinMeter.fillAmount = 0;
         timerImage.fillAmount = 0;
         StartCoroutine(AdvanceTimer(timerTickRate));
-        GMaxStress = 100;
-        PMaxStress = 100;
     }
 
     public void GavStressSet(float i) { GMaxStress = i; }
@@ -116,7 +114,7 @@ public class GameState : MonoBehaviour
     /// </summary>
     // <param name="time"></param>
     public void SetMaxTimer(float max, float PotentialPenalty) {
-        MaxTimer = (float)Math.Round( (max - ( (PerpStress/100)*PotentialPenalty)) *2 )/2;
+        MaxTimer = (float)Math.Round( (max - ( (PerpStress/PMaxStress)*PotentialPenalty)) *2 )/2;
         CurrentTimer = 0;
     }
     /// <summary>

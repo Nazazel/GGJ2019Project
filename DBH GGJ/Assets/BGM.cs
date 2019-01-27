@@ -19,6 +19,7 @@ public class BGM : MonoBehaviour
 
     private AudioSource[] tracks;
     public float fade;
+    private bool alreadyTransitioned = false;
 
     void Start()
     {
@@ -43,6 +44,9 @@ public class BGM : MonoBehaviour
     }
 
     public void LowToHigh() {
+        if (alreadyTransitioned)
+            return;
+        alreadyTransitioned = true;
         StartCoroutine(FadeOut(tracks[1], fade));
         StartCoroutine(FadeIn(tracks[0], fade));
         if (tracks[1].volume == 0f) {
