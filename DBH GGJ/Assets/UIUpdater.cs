@@ -10,18 +10,41 @@ public class UIUpdater : MonoBehaviour
     public Text option2Text;
     public Text option3Text;
 
+    /// for type writer effect
+    public float TyperDelay = 0.01f;
+    string FullString;
+    string CurrentString;
+
+
+
+    private GameState gs;
     private GraphPos gp;
 
     private void Start()
     {
+        gs = GetComponent<GameState>();
         gp = GetComponent<GraphPos>();
         updateAll();
+        
+        CurrentString = "";
+    }
+
+
+    IEnumerator Typer(string input) {
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            dialogueText.text = input.Substring(0, i);
+            yield return new WaitForSeconds(TyperDelay);
+        }
+
     }
 
     //long text
     public void dialogueUpdate(string input)
     {
-        dialogueText.text = input;
+        StartCoroutine(Typer(input));
+      //  dialogueText.text = input;
     }
 
 //short text
@@ -62,6 +85,7 @@ public class UIUpdater : MonoBehaviour
 
             optionUpdate(gp.graph[dialogue.options[i]].shortText, i + 1);
         }
+
     }
 
 
