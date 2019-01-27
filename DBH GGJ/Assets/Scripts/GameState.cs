@@ -18,11 +18,13 @@ public class GameState : MonoBehaviour
     public textBoxTransition box;
     public GraphPos dialouge;
     public GraphPos sender;
+    public UIUpdater UI;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        UI = GetComponent<UIUpdater>();
         sender = GetComponent<GraphPos>();
         GavinStress = 0;
         PerpStress = 0;
@@ -121,7 +123,12 @@ public class GameState : MonoBehaviour
        
         for (int i = 0; i < dialouge.getCurrentDialogue().options.Count; i++) {
             if (dialouge.getCurrentDialogue().options[i] == dialouge.getCurrentDialogue().defaultOption) {
+               
+                Debug.Log("amount of options: " + dialouge.getCurrentDialogue().options.Count);
+                Debug.Log("option i choose was: " + i);
                 sender.SelectOption(i);
+                CurrentTimer = 0;
+                UI.updateAll();
                 break;
             }
         }
