@@ -12,8 +12,7 @@ public class UIUpdater : MonoBehaviour
 
     /// for type writer effect
     public float TyperDelay = 0.01f;
-    string FullString;
-    string CurrentString;
+   
 
 
 
@@ -26,13 +25,13 @@ public class UIUpdater : MonoBehaviour
         gp = GetComponent<GraphPos>();
         updateAll();
         
-        CurrentString = "";
+        
     }
 
 
     IEnumerator Typer(string input) {
-
-        for (int i = 0; i < input.Length; i++)
+       // Debug.Log(input.Substring(0, input.Length-1));
+        for (int i = 0; i <= input.Length; i++)
         {
             dialogueText.text = input.Substring(0, i);
             yield return new WaitForSeconds(TyperDelay);
