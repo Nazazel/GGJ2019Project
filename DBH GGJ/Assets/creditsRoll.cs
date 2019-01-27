@@ -89,7 +89,7 @@ public class creditsRoll : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         theText.text = "Audio Designer:\n\nBrandon Delehoy";
         yield return new WaitForSeconds(3.0f);
-        theText.text = "Programmers:\n\nMayan Shoshani\n\nKyle Kissler\n\nUlises Perez";
+        theText.text = "Programmers:\n\nMayan Shoshani\n\nKyle Kissler\n\nUlises Perez\n\nBrandon Delehoy";
         yield return new WaitForSeconds(3.0f);
         theText.text = " ";
         FadeImg = GameObject.Find("Fade").GetComponent<Image>();
