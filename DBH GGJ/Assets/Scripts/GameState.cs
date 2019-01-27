@@ -91,8 +91,6 @@ public class GameState : MonoBehaviour
     public void UpdateStress(Stress StressVal) {
         GavinStress += StressVal.gavStress;
         PerpStress += StressVal.perpStress;
-        if (StressVal.perpStress > 0)
-            Debug.Log(PerpStress);
         //Debug.Log("GavStress: " + GavinStress + "\nRA9Stress: " + PerpStress);
     }
     /// <summary>
