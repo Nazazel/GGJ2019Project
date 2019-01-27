@@ -37,7 +37,8 @@ public class GraphPos : MonoBehaviour
         if (checkHardCodedInteractions())
         {
             uup.updateAll(true);
-            Invoke("callEndGame", 10);
+            Invoke("startFadeOut",7);
+            Invoke("callEndGame", 14);
             Destroy(gs);
             return;
         }
@@ -52,10 +53,13 @@ public class GraphPos : MonoBehaviour
                 "\" selected when no such option exists from \"" + cursor + "\".");
         }
     }
-
-    private void callEndGame()
+    private void startFadeOut()
     {
         trans.FadeOut();
+    }
+    private void callEndGame()
+    {
+        
         SceneManager.LoadScene("GameOver");
     }
 
