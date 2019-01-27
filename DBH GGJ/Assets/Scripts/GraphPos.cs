@@ -29,6 +29,8 @@ public class GraphPos : MonoBehaviour
             Debug.LogError("Invalid Dialogue option \"" + selectedButtonIndex + 
                 "\" selected when no such option exists from \"" + cursor + "\".");
         }
+
+        Debug.Log(graph[cursor].longText);
     }
 
     //@Ulises: use this function below to get data out, all the members of Dialogue are public. Probably need to read 
