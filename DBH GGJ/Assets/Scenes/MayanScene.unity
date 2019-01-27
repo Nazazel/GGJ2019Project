@@ -653,6 +653,7 @@ MonoBehaviour:
   option1Text: {fileID: 247423721}
   option2Text: {fileID: 129271685}
   option3Text: {fileID: 152322351}
+  GavBlip: {fileID: 8300000, guid: a0ee1158093b3774698e38cceda80834, type: 3}
   TyperDelay: 0.01
 --- !u!82 &937764799
 AudioSource:

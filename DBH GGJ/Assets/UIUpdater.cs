@@ -9,7 +9,7 @@ public class UIUpdater : MonoBehaviour
     public Text option1Text;
     public Text option2Text;
     public Text option3Text;
-
+    public AudioClip GavBlip;
     /// for type writer effect
     public float TyperDelay = 0.01f;
    
@@ -18,24 +18,40 @@ public class UIUpdater : MonoBehaviour
 
     private GameState gs;
     private GraphPos gp;
-
+    private AudioSource AS;
+    private bool MakeSounds;
     private void Start()
     {
         gs = GetComponent<GameState>();
         gp = GetComponent<GraphPos>();
+        AS = GetComponent<AudioSource>();
         updateAll();
-        
-        
+        MakeSounds = false;
+
+
+    }
+
+    IEnumerator musicPlayer()
+    {
+
+        while (MakeSounds == true) {
+            AS.PlayOneShot(GavBlip);
+            yield return new WaitForSeconds(1f);
+        }
     }
 
 
     IEnumerator Typer(string input) {
-       // Debug.Log(input.Substring(0, input.Length-1));
+        AS.volume = 1;
+        // Debug.Log(input.Substring(0, input.Length-1));
+        MakeSounds = true;
         for (int i = 0; i <= input.Length; i++)
         {
             dialogueText.text = input.Substring(0, i);
             yield return new WaitForSeconds(TyperDelay);
         }
+        MakeSounds = false;
+        AS.volume = 0;
 
     }
 
@@ -43,10 +59,12 @@ public class UIUpdater : MonoBehaviour
     public void dialogueUpdate(string input)
     {
         StartCoroutine(Typer(input));
-      //  dialogueText.text = input;
+        StartCoroutine(musicPlayer());
+
+        //  dialogueText.text = input;
     }
 
-//short text
+    //short text
     public void optionUpdate(string input, int optionNumber)
     {
         //if input is empty give a default value
