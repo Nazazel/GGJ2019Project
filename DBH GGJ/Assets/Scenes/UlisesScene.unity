@@ -679,6 +679,21 @@ MonoBehaviour:
   dialouge: {fileID: 0}
   sender: {fileID: 0}
   UI: {fileID: 0}
+  GavImage: {fileID: 160613386}
+  PerpImage: {fileID: 2031396385}
+  PNeutral: {fileID: 21300000, guid: 087220fa078b58041afd524ce0eae79e, type: 3}
+  PAngry: {fileID: 21300000, guid: 59d82df8f1b03164c84fb18655caafe8, type: 3}
+  PImpressed: {fileID: 21300000, guid: b15956539ffa66f44952506c4361076a, type: 3}
+  PFurious: {fileID: 21300000, guid: a96e3c760057f5f4a9e5ba624da04d98, type: 3}
+  PArrogant: {fileID: 21300000, guid: 771ee37ab33918248b6c759be43e2201, type: 3}
+  PProphetic: {fileID: 21300000, guid: f5d56b362ff37d74994269e9b02f4e56, type: 3}
+  GNeutral: {fileID: 21300000, guid: d68b731fd8a4e3f418741d08041129ee, type: 3}
+  GAngry: {fileID: 21300000, guid: 65a65b910707b4b47bc3bfb52de85818, type: 3}
+  GSuprised: {fileID: 21300000, guid: b74d454ec3c387644803424b7e1134d9, type: 3}
+  GFearful: {fileID: 21300000, guid: e7647a92ec701b4488658a5dd4a6c9e9, type: 3}
+  GTense: {fileID: 21300000, guid: e87f76f4aaf340149866439a9e4fc127, type: 3}
+  GPanic: {fileID: 21300000, guid: d68b731fd8a4e3f418741d08041129ee, type: 3}
+  GArrogant: {fileID: 21300000, guid: d68b731fd8a4e3f418741d08041129ee, type: 3}
 --- !u!82 &937764800
 AudioSource:
   m_ObjectHideFlags: 0
