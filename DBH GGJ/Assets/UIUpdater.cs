@@ -98,8 +98,7 @@ public class UIUpdater : MonoBehaviour
         //textswitch
         gs.TextSwitch(dialogue.speaker);
 
-        //longtext
-        dialogue.options.ForEach(item => Debug.Log("options: " + item));
+
         //audio
         speaker = dialogue.speaker;
         //sending the choice data to gamestate

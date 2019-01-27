@@ -93,6 +93,8 @@ public class GameState : MonoBehaviour
     public void UpdateStress(Stress StressVal) {
         GavinStress += StressVal.gavStress;
         PerpStress += StressVal.perpStress;
+        if (StressVal.perpStress > 0)
+            Debug.Log(PerpStress);
         //Debug.Log("GavStress: " + GavinStress + "\nRA9Stress: " + PerpStress);
     }
     /// <summary>
@@ -192,7 +194,6 @@ public class GameState : MonoBehaviour
     /// switches textbox based on speaker name passed 
     /// </summary>
     public void TextSwitch(string name) {
-        Debug.Log(name);
 
         if (name == "Gavin"){
             //Debug.Log("G");

@@ -7,6 +7,7 @@ public class GraphPos : MonoBehaviour
     [HideInInspector]
     public Dictionary<int, Dialogue> graph;
     public int spawnDialogue;
+    private BGM bgm;
     private int cursor;//stores an int because all dialogues are uniquely ID by an int
     private GameState gs;
     void Awake()
@@ -22,6 +23,7 @@ public class GraphPos : MonoBehaviour
     void Start()
     {
         gs = GetComponent<GameState>();
+        bgm = GameObject.Find("BGM").GetComponent<BGM>();
     }
 
     public void SelectOption(int selectedButtonIndex)
@@ -80,14 +82,14 @@ public class GraphPos : MonoBehaviour
                 }
                 //this one is also an audio break point
                 break;
-            case 63:
-                if (gs.GetStress().perpStress >= 70)
+            case 64:
+                if (gs.GetStress().perpStress >= 90)
                 {
                     Debug.Log("game over");
                 }
                 else
                 {
-                    gs.PerpStresSet(80);
+                    bgm.LowToHigh();
                 }
                 break;
             //Gav exit points
@@ -98,29 +100,41 @@ public class GraphPos : MonoBehaviour
                 }
                 else
                 {
-                    gs.PerpStresSet(90);
+                    gs.GavStressSet(90);
                 }
                 break;
             case 52:
-                if (gs.GetStress().perpStress >= 90)
+                if (gs.GetStress().gavStress >= 90)
                 {
                     Debug.Log("game over");
                 }
                 else
                 {
-                    gs.PerpStresSet(80);
+                    //
                 }
                 break;
             default:
                 break;
             //bad ending
+            case 45:
+                Debug.Log("bad ending");
+                break;
             //good ending
+            case 63:
+                Debug.Log("good ending");
+                break;
             //audio shift points
+            case 15:
+                bgm.LowToHigh();
+                break;
             case 26:
+                bgm.LowToHigh();
                 break;
             case 34:
+                bgm.LowToHigh();
                 break;
             case 44:
+                bgm.LowToHigh();
                 break;
         }
         return false;
