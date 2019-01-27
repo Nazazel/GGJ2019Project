@@ -72,6 +72,7 @@ public class GameState : MonoBehaviour
     }
 
     public void GavStressSet(float i) { GMaxStress = i; }
+
     public void PerpStresSet(float i) { PMaxStress = i; }
 
 
@@ -211,50 +212,61 @@ public class GameState : MonoBehaviour
     public void UpdateImages() {
         PerpMeter.fillAmount = (float)Math.Min(PMaxStress,PerpStress);
         GavinMeter.fillAmount = (float)Math.Min(GMaxStress, GavinStress);
+
         timerImage.fillAmount = (float)Math.Min(MaxTimer, CurrentTimer / MaxTimer);
-        if (CurrentTimer==MaxTimer)
+        if (CurrentTimer == MaxTimer)
         {
-           // Debug.Log("timer end");
+            // Debug.Log("timer end");
             TimerEnd();
         }
 
-        
-            Debug.Log(GavinPortrait[0].type);
+
+        if (GavinPortrait.Count > 0)
+        {
             if (GavinPortrait[0].type == "Tense") { GavImage.sprite = GTense; }
-            if (GavinPortrait[0].type == "Neutral") { GavImage.sprite = GNeutral; }
-            if (GavinPortrait[0].type == "Surprised") { GavImage.sprite = GSuprised; }
-            if (GavinPortrait[0].type == "Fearful") { GavImage.sprite = GFearful; }
-            if (GavinPortrait[0].type == "Angry") { GavImage.sprite = GAngry; }
-            if (GavinPortrait[0].type == "Panic") { GavImage.sprite = GPanic; }
-            if (GavinPortrait[0].type == "Arrogant") { GavImage.sprite = GArrogant; }
-        if (GavinPortrait.Count > 1) { if (CurrentTimer > GavinPortrait[1].time) {
-                if (GavinPortrait[1].type == "Tense") { GavImage.sprite = GTense; }
-                if (GavinPortrait[1].type == "Neutral") { GavImage.sprite = GNeutral; }
-                if (GavinPortrait[1].type == "Surprised") { GavImage.sprite = GSuprised; }
-                if (GavinPortrait[1].type == "Fearful") { GavImage.sprite = GFearful; }
-                if (GavinPortrait[1].type == "Angry") { GavImage.sprite = GAngry; }
-                if (GavinPortrait[1].type == "Panic") { GavImage.sprite = GPanic; }
-                if (GavinPortrait[1].type == "Arrogant") { GavImage.sprite = GArrogant; }
-            } }
-       
-        
-            Debug.Log(PerpPortrait[0].type);
-            if (PerpPortrait[0].type == "Impressed") { PerpImage.sprite = PImpressed; }
-            if (PerpPortrait[0].type == "Neutral") { PerpImage.sprite = PNeutral; }
-            if (PerpPortrait[0].type == "Furious") { PerpImage.sprite = PFurious; }
-            if (PerpPortrait[0].type == "Prophetic") { PerpImage.sprite = PProphetic; }
-            if (PerpPortrait[0].type == "Angry") { PerpImage.sprite = PAngry; }
-            if (PerpPortrait[0].type == "Arrogant") { PerpImage.sprite = PArrogant; }
-        if (PerpPortrait.Count > 1) { if (CurrentTimer > PerpPortrait[1].time) {
+            else if (GavinPortrait[0].type == "Neutral") { GavImage.sprite = GNeutral; }
+            else if (GavinPortrait[0].type == "Surprised") { GavImage.sprite = GSuprised; }
+            else if (GavinPortrait[0].type == "Fearful") { GavImage.sprite = GFearful; }
+            else if (GavinPortrait[0].type == "Angry") { GavImage.sprite = GAngry; }
+            else if (GavinPortrait[0].type == "Panic") { GavImage.sprite = GPanic; }
+            else if (GavinPortrait[0].type == "Arrogant") { GavImage.sprite = GArrogant; }
+            if (GavinPortrait.Count > 1)
+            {
+                if (CurrentTimer > GavinPortrait[1].time)
+                {
+                    if (GavinPortrait[1].type == "Tense") { GavImage.sprite = GTense; }
+                    else if (GavinPortrait[1].type == "Neutral") { GavImage.sprite = GNeutral; }
+                    else if (GavinPortrait[1].type == "Surprised") { GavImage.sprite = GSuprised; }
+                    else if (GavinPortrait[1].type == "Fearful") { GavImage.sprite = GFearful; }
+                    else if (GavinPortrait[1].type == "Angry") { GavImage.sprite = GAngry; }
+                    else if (GavinPortrait[1].type == "Panic") { GavImage.sprite = GPanic; }
+                    else if (GavinPortrait[1].type == "Arrogant") { GavImage.sprite = GArrogant; }
+                }
+            }
+        }
+
+        if (PerpPortrait.Count>0) { 
+        if (PerpPortrait[0].type == "Impressed") { PerpImage.sprite = PImpressed; }
+        else if (PerpPortrait[0].type == "Neutral") { PerpImage.sprite = PNeutral; }
+        else if (PerpPortrait[0].type == "Furious") { PerpImage.sprite = PFurious; }
+        else if (PerpPortrait[0].type == "Prophetic") { PerpImage.sprite = PProphetic; }
+        else if (PerpPortrait[0].type == "Angry") { PerpImage.sprite = PAngry; }
+        else if (PerpPortrait[0].type == "Arrogant") { PerpImage.sprite = PArrogant; }
+        if (PerpPortrait.Count > 1)
+        {
+            if (CurrentTimer > PerpPortrait[1].time)
+            {
 
                 if (PerpPortrait[1].type == "Impressed") { PerpImage.sprite = PImpressed; }
-                if (PerpPortrait[1].type == "Neutral") { PerpImage.sprite = PNeutral; }
-                if (PerpPortrait[1].type == "Furious") { PerpImage.sprite = PFurious; }
-                if (PerpPortrait[1].type == "Prophetic") { PerpImage.sprite = PProphetic; }
-                if (PerpPortrait[1].type == "Angry") { PerpImage.sprite = PAngry; }
-                if (PerpPortrait[1].type == "Arrogant") { PerpImage.sprite = PArrogant; }
+                else if (PerpPortrait[1].type == "Neutral") { PerpImage.sprite = PNeutral; }
+                else if (PerpPortrait[1].type == "Furious") { PerpImage.sprite = PFurious; }
+                else if (PerpPortrait[1].type == "Prophetic") { PerpImage.sprite = PProphetic; }
+                else if (PerpPortrait[1].type == "Angry") { PerpImage.sprite = PAngry; }
+                else if (PerpPortrait[1].type == "Arrogant") { PerpImage.sprite = PArrogant; }
 
-            } }
+            }
+        }
+    }
         
 
     }
