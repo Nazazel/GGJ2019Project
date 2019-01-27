@@ -131,9 +131,11 @@ public class GameState : MonoBehaviour
 
     }
 
-    public void UpdateMeter() {
+    public void Updateimages() {
         PerpMeter.fillAmount = (float)Math.Min(100,PerpStress);
         GavinMeter.fillAmount = (float)Math.Min(100, GavinStress);
+        timerImage.fillAmount = (float)Math.Min(MaxTimer, CurrentTimer);
+
     }
 
     /// <summary>
@@ -151,6 +153,7 @@ public class GameState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        UpdateMeter();
+        timerImage.fillAmount = CurrentTimer;
     }
 }
