@@ -59,6 +59,7 @@ public class gameOverTransition : MonoBehaviour
 
     void FadeToBlack()
     {
+        FadeImg.enabled = true;
         FadeImg.color = Color.Lerp(FadeImg.color, Color.black, fadeSpeed * Time.deltaTime);
         if (FadeImg.color.a == 1.0f)
         {

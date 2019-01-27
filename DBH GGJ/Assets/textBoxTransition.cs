@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class textBoxTransition : MonoBehaviour
 {
     public Image textBox;
+    public Image gavImg;
+    public Image perpImg;
     public bool shifting;
     public bool started;
     public float shiftDir;
@@ -18,6 +20,7 @@ public class textBoxTransition : MonoBehaviour
     {
         started = false;
         textBox = gameObject.GetComponent<Image>();
+        leftBox();
     }
 
     // Update is called once per frame
@@ -35,6 +38,7 @@ public class textBoxTransition : MonoBehaviour
                 }
                 else
                 {
+
                     shifting = false;
                 }
             }
@@ -47,6 +51,7 @@ public class textBoxTransition : MonoBehaviour
                 }
                 else
                 {
+                   
                     shifting = false;
                 }
             }
@@ -57,6 +62,8 @@ public class textBoxTransition : MonoBehaviour
     //this sets up the text box so that rA9 is speaking
     public void leftBox()
     {
+        gavImg.gameObject.SetActive(false);
+        perpImg.gameObject.SetActive(true);
         shiftDir = -1;
         StartCoroutine("shiftLeft");
     }
@@ -65,6 +72,8 @@ public class textBoxTransition : MonoBehaviour
     //this sets up the text box so that Gavin is speaking
     public void rightBox()
     {
+        gavImg.gameObject.SetActive(true);
+        perpImg.gameObject.SetActive(false);
         shiftDir = 1;
         StartCoroutine("shiftRight");
     }
