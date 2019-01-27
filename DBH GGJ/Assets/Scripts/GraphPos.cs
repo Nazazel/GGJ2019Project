@@ -9,11 +9,12 @@ public class GraphPos : MonoBehaviour
     public int spawnDialogue;
     private int cursor;//stores an int because all dialogues are uniquely ID by an int
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         cursor = spawnDialogue;
         graph = new Dictionary<int, Dialogue>();
         List<Dictionary<string, object>> data = CSVReader.Read("test");
+        Debug.Log("lines read in: " + data.Count);
         for(int i = 0; i < data.Count; ++i)
             graph[i + 2] = new Dialogue(i, data[i]);
     }
