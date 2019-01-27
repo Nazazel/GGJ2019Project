@@ -34,7 +34,7 @@ public class introController : MonoBehaviour
         inText.text = "The current unemployment rate of 28% is expected to increase yet again as a new line of androids enters the market";
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Return));
         yield return new WaitForSeconds(0.1f);
-        inText.text = "Though humans have grown to despise androids for being more efficient, resilient and intelligent, they've become dependent on the machines, purchasing them for the household, businesses and the like";
+        inText.text = "Though humans have grown to despise androids for being more efficient, resilient and intelligent, we've become dependent on the machines, purchasing them for the household, businesses and the like";
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Return));
         yield return new WaitForSeconds(0.1f);
         inText.text = "These machines sternly adhere to their protocol which advocates human superiority. They are to do whatever humans say, take whatever beating humans deal, and most importantly, treat humans with the utmost respect. They feel nothing, think nothing and are often seen as less than nothing";

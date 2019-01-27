@@ -72,4 +72,9 @@ public class BGM : MonoBehaviour
             yield return null;
         }
     }
+
+    public void FadeMusic()
+    {
+        StartCoroutine(FadeOut(tracks[0], fade));
+    }
 }

@@ -1004,11 +1004,11 @@ MonoBehaviour:
   PProphetic: {fileID: 21300000, guid: f5d56b362ff37d74994269e9b02f4e56, type: 3}
   GNeutral: {fileID: 21300000, guid: d68b731fd8a4e3f418741d08041129ee, type: 3}
   GAngry: {fileID: 21300000, guid: 65a65b910707b4b47bc3bfb52de85818, type: 3}
-  GSuprised: {fileID: 21300000, guid: b74d454ec3c387644803424b7e1134d9, type: 3}
-  GFearful: {fileID: 21300000, guid: e7647a92ec701b4488658a5dd4a6c9e9, type: 3}
+  GSuprised: {fileID: 21300000, guid: 38ed54a9c4ec7574cb4e4b0c3ef97421, type: 3}
+  GFearful: {fileID: 21300000, guid: be169b715bead6849926d6298748d619, type: 3}
   GTense: {fileID: 21300000, guid: e87f76f4aaf340149866439a9e4fc127, type: 3}
-  GPanic: {fileID: 21300000, guid: d68b731fd8a4e3f418741d08041129ee, type: 3}
-  GArrogant: {fileID: 21300000, guid: d68b731fd8a4e3f418741d08041129ee, type: 3}
+  GPanic: {fileID: 21300000, guid: 15a853aa7c986084db2c5d5471c85c56, type: 3}
+  GArrogant: {fileID: 21300000, guid: 5fd646a3688bc80459c678310533d00d, type: 3}
 --- !u!82 &937764800
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2003,7 +2003,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: acb87c601d3a51d41bfe7441e13cf582, type: 3}
     m_FontSize: 65
     m_FontStyle: 0
     m_BestFit: 0
