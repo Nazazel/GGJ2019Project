@@ -211,8 +211,8 @@ public class GameState : MonoBehaviour
     /// put in update to continuosly update the fillamount of the images 
     /// </summary>
     public void UpdateImages() {
-        PerpMeter.fillAmount = (float)Math.Min(PMaxStress,PerpStress);
-        GavinMeter.fillAmount = (float)Math.Min(GMaxStress, GavinStress);
+        PerpMeter.fillAmount = (float)Math.Min(1,PerpStress/ PMaxStress);
+        GavinMeter.fillAmount = (float)Math.Min(1, GavinStress/ GMaxStress);
 
         timerImage.fillAmount = (float)Math.Min(MaxTimer, CurrentTimer / MaxTimer);
         if (CurrentTimer == MaxTimer)
