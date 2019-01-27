@@ -113,6 +113,7 @@ public class GameState : MonoBehaviour
     }
 
     /// <summary>
+    /// ticks time for conversation
     /// </summary>
     private void TickTimer(float seconds)
     {
@@ -123,14 +124,17 @@ public class GameState : MonoBehaviour
         TimerEnd();
     }
 
+    /// <summary>
+    /// switches textbox based on speaker name passed 
+    /// </summary>
     public void TextSwitch(string name) {
-
         if (name == "Gavin"){ box.rightBox(); }
         if (name =="RA9") { box.leftBox(); }
-
-
     }
 
+    /// <summary>
+    /// put in update to continuosly update the fillamount of the images 
+    /// </summary>
     public void UpdateImages() {
         PerpMeter.fillAmount = (float)Math.Min(100,PerpStress);
         GavinMeter.fillAmount = (float)Math.Min(100, GavinStress);
