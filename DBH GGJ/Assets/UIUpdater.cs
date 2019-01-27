@@ -10,12 +10,15 @@ public class UIUpdater : MonoBehaviour
     public Text option2Text;
     public Text option3Text;
     public AudioClip GavBlip;
+    public AudioClip PerpBlip;
+    
     /// for type writer effect
     public float TyperDelay = 0.01f;
-   
 
 
 
+    string speaker;
+    private AudioClip speakerAudio;
     private GameState gs;
     private GraphPos gp;
     private AudioSource AS;
@@ -33,10 +36,12 @@ public class UIUpdater : MonoBehaviour
 
     IEnumerator musicPlayer()
     {
-
+        if (speaker == "Gavin") { speakerAudio = GavBlip; }
+        else if (speaker == "RA9") { speakerAudio = PerpBlip; }
+        else { MakeSounds = false; }
         while (MakeSounds == true) {
-            AS.PlayOneShot(GavBlip);
-            yield return new WaitForSeconds(1f);
+            AS.PlayOneShot(speakerAudio);
+            yield return new WaitForSeconds(2f);
         }
     }
 
@@ -91,6 +96,7 @@ public class UIUpdater : MonoBehaviour
     {
         Dialogue dialogue = gp.getCurrentDialogue();
         //longtext
+        speaker = dialogue.speaker;
         dialogueUpdate(dialogue.longText);
         //disable all buttons to clear screen
         option1Text.transform.parent.gameObject.SetActive(false);
