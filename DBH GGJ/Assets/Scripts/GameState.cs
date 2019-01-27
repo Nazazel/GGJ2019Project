@@ -126,12 +126,12 @@ public class GameState : MonoBehaviour
     public void TextSwitch(string name) {
 
         if (name == "Gavin"){ box.rightBox(); }
-        else { box.leftBox(); }
+        if (name =="RA9") { box.leftBox(); }
 
 
     }
 
-    public void Updateimages() {
+    public void UpdateImages() {
         PerpMeter.fillAmount = (float)Math.Min(100,PerpStress);
         GavinMeter.fillAmount = (float)Math.Min(100, GavinStress);
         timerImage.fillAmount = (float)Math.Min(MaxTimer, CurrentTimer);
@@ -153,7 +153,7 @@ public class GameState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateMeter();
-        timerImage.fillAmount = CurrentTimer;
+        UpdateImages();
+
     }
 }
