@@ -68,11 +68,11 @@ public class MenuManager : MonoBehaviour
             yield return new WaitForSeconds(2.0f);
             SceneManager.LoadScene("MainLevel");
         }
-        else if (sc == "RT")
+        else if (sc == "MM")
         {
             tr.FadeOut();
             yield return new WaitForSeconds(2.0f);
-            SceneManager.LoadScene("MainLevel");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
