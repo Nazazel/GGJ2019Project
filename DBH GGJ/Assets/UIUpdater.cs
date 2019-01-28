@@ -69,7 +69,7 @@ public class UIUpdater : MonoBehaviour
             StopCoroutine(activeTyper);
         }
         activeTyper = StartCoroutine(Typer(input));
-        if (activeTyper != null)
+        if (activeSpeaker != null)
         {
             StopCoroutine(activeSpeaker);
         }
