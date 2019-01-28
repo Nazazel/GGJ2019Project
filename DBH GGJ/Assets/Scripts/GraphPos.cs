@@ -59,7 +59,7 @@ public class GraphPos : MonoBehaviour
     }
     private void callEndGame()
     {
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene((cursor == 65) ? "Credits" : "GameOver");
     }
 
     public Dialogue getCurrentDialogue()
