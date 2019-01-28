@@ -23,7 +23,7 @@ public class UIUpdater : MonoBehaviour
     private GraphPos gp;
     private AudioSource AS;
     private bool MakeSounds;
-    private Coroutine activeTyper;
+    private Coroutine activeTyper, activeSpeaker;
     private void Start()
     {
         gs = GetComponent<GameState>();
@@ -69,7 +69,11 @@ public class UIUpdater : MonoBehaviour
             StopCoroutine(activeTyper);
         }
         activeTyper = StartCoroutine(Typer(input));
-        StartCoroutine(musicPlayer());
+        if (activeTyper != null)
+        {
+            StopCoroutine(activeSpeaker);
+        }
+        activeSpeaker = StartCoroutine(musicPlayer());
 
         //  dialogueText.text = input;
     }
